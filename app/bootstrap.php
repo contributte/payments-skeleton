@@ -7,10 +7,10 @@ require __DIR__ . '/../vendor/autoload.php';
 $configurator = new ExtraConfigurator();
 
 $configurator->setDebugMode(true);
-$configurator->enableTracy(__DIR__ . '/../log');
+$configurator->enableTracy(__DIR__ . '/../var/log');
 
 $configurator->setTimeZone('Europe/Prague');
-$configurator->setTempDirectory(__DIR__ . '/../temp');
+$configurator->setTempDirectory(__DIR__ . '/../var/temp');
 
 $configurator->addConfig(__DIR__ . '/config/config.neon');
 

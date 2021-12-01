@@ -58,6 +58,10 @@
                 "docker",
                 "nette"
             ],
+            "support": {
+                "issues": "https://github.com/contributte/bootstrap/issues",
+                "source": "https://github.com/contributte/bootstrap/tree/master"
+            },
             "time": "2018-06-25T11:43:49+00:00"
         },
         {
@@ -113,6 +117,10 @@
                 "latte",
                 "nette"
             ],
+            "support": {
+                "issues": "https://github.com/contributte/latte/issues",
+                "source": "https://github.com/contributte/latte/tree/master"
+            },
             "time": "2018-06-21T10:51:40+00:00"
         },
         {
@@ -164,6 +172,10 @@
                 "nette",
                 "the pay"
             ],
+            "support": {
+                "issues": "https://github.com/contributte/thepay/issues",
+                "source": "https://github.com/contributte/thepay/tree/v4.1.1"
+            },
             "time": "2021-01-09T16:37:00+00:00"
         },
         {
@@ -215,6 +227,10 @@
             "keywords": [
                 "the pay"
             ],
+            "support": {
+                "issues": "https://github.com/contributte/thepay-api/issues",
+                "source": "https://github.com/contributte/thepay-api/tree/master"
+            },
             "time": "2019-03-20T14:05:10+00:00"
         },
         {
@@ -288,20 +304,24 @@
                 "profile",
                 "tracy"
             ],
+            "support": {
+                "issues": "https://github.com/contributte/tracy/issues",
+                "source": "https://github.com/contributte/tracy/tree/v0.3.2"
+            },
             "time": "2019-02-25T12:50:46+00:00"
         },
         {
             "name": "latte/latte",
-            "version": "v2.4.8",
+            "version": "v2.4.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/latte.git",
-                "reference": "95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90"
+                "reference": "7b3100b423c21ac1e192355ee65074917116fb25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/latte/zipball/95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90",
-                "reference": "95ca6bab6caaa3efa3b5d7d4537f9a45cb89ed90",
+                "url": "https://api.github.com/repos/nette/latte/zipball/7b3100b423c21ac1e192355ee65074917116fb25",
+                "reference": "7b3100b423c21ac1e192355ee65074917116fb25",
                 "shasum": ""
             },
             "require": {
@@ -313,7 +333,7 @@
                 "nette/application": "<2.4.1"
             },
             "require-dev": {
-                "nette/tester": "~1.7",
+                "nette/tester": "^1.7 || ^2.0",
                 "tracy/tracy": "^2.3"
             },
             "suggest": {
@@ -360,7 +380,11 @@
                 "template",
                 "twig"
             ],
-            "time": "2018-06-03T17:34:15+00:00"
+            "support": {
+                "issues": "https://github.com/nette/latte/issues",
+                "source": "https://github.com/nette/latte/tree/v2.4.9"
+            },
+            "time": "2021-02-24T12:19:54+00:00"
         },
         {
             "name": "nette/application",
@@ -444,6 +468,10 @@
                 "routing",
                 "seo"
             ],
+            "support": {
+                "issues": "https://github.com/nette/application/issues",
+                "source": "https://github.com/nette/application/tree/v2.4.17"
+            },
             "time": "2020-11-24T19:05:35+00:00"
         },
         {
@@ -520,29 +548,33 @@
                 "configurator",
                 "nette"
             ],
+            "support": {
+                "issues": "https://github.com/nette/bootstrap/issues",
+                "source": "https://github.com/nette/bootstrap/tree/v2.4"
+            },
             "time": "2018-05-17T12:52:20+00:00"
         },
         {
             "name": "nette/caching",
-            "version": "v3.0.2",
+            "version": "v3.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/caching.git",
-                "reference": "7cab46d8d436e26a874715e6fff13b74d29dbf8c"
+                "reference": "27d8f0048eb1a9c7e49e0268f39b2db7d3ce7ae9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/caching/zipball/7cab46d8d436e26a874715e6fff13b74d29dbf8c",
-                "reference": "7cab46d8d436e26a874715e6fff13b74d29dbf8c",
+                "url": "https://api.github.com/repos/nette/caching/zipball/27d8f0048eb1a9c7e49e0268f39b2db7d3ce7ae9",
+                "reference": "27d8f0048eb1a9c7e49e0268f39b2db7d3ce7ae9",
                 "shasum": ""
             },
             "require": {
                 "nette/finder": "^2.4 || ^3.0",
                 "nette/utils": "^2.4 || ^3.0",
-                "php": ">=7.1 <8.1"
+                "php": ">=7.2 <8.2"
             },
             "require-dev": {
-                "latte/latte": "^2.9",
+                "latte/latte": "^2.10",
                 "nette/di": "^v3.0",
                 "nette/tester": "^2.0",
                 "phpstan/phpstan": "^0.12",
@@ -554,7 +586,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -587,7 +619,11 @@
                 "nette",
                 "sqlite"
             ],
-            "time": "2020-11-16T01:37:04+00:00"
+            "support": {
+                "issues": "https://github.com/nette/caching/issues",
+                "source": "https://github.com/nette/caching/tree/v3.1.2"
+            },
+            "time": "2021-08-24T23:45:03+00:00"
         },
         {
             "name": "nette/component-model",
@@ -648,6 +684,10 @@
                 "components",
                 "nette"
             ],
+            "support": {
+                "issues": "https://github.com/nette/component-model/issues",
+                "source": "https://github.com/nette/component-model/tree/v2.4.0"
+            },
             "time": "2018-03-20T16:32:50+00:00"
         },
         {
@@ -717,6 +757,10 @@
                 "nette",
                 "static"
             ],
+            "support": {
+                "issues": "https://github.com/nette/di/issues",
+                "source": "https://github.com/nette/di/tree/v2.4.17"
+            },
             "time": "2020-11-06T00:28:18+00:00"
         },
         {
@@ -780,6 +824,10 @@
                 "iterator",
                 "nette"
             ],
+            "support": {
+                "issues": "https://github.com/nette/finder/issues",
+                "source": "https://github.com/nette/finder/tree/v2.5.2"
+            },
             "time": "2020-01-03T20:35:40+00:00"
         },
         {
@@ -852,6 +900,10 @@
                 "session",
                 "url"
             ],
+            "support": {
+                "issues": "https://github.com/nette/http/issues",
+                "source": "https://github.com/nette/http/tree/v2.4.12"
+            },
             "time": "2020-11-06T00:17:53+00:00"
         },
         {
@@ -913,6 +965,10 @@
                 "nette",
                 "yaml"
             ],
+            "support": {
+                "issues": "https://github.com/nette/neon/issues",
+                "source": "https://github.com/nette/neon/tree/v3.0.1"
+            },
             "time": "2020-03-04T11:45:23+00:00"
         },
         {
@@ -977,6 +1033,10 @@
                 "php",
                 "scaffolding"
             ],
+            "support": {
+                "issues": "https://github.com/nette/php-generator/issues",
+                "source": "https://github.com/nette/php-generator/tree/master"
+            },
             "time": "2020-06-19T14:31:47+00:00"
         },
         {
@@ -1041,6 +1101,10 @@
                 "nette",
                 "reflection"
             ],
+            "support": {
+                "issues": "https://github.com/nette/reflection/issues",
+                "source": "https://github.com/nette/reflection/tree/master"
+            },
             "abandoned": true,
             "time": "2017-07-11T19:28:57+00:00"
         },
@@ -1124,6 +1188,10 @@
                 "utility",
                 "validation"
             ],
+            "support": {
+                "issues": "https://github.com/nette/utils/issues",
+                "source": "https://github.com/nette/utils/tree/v2.5.7"
+            },
             "time": "2020-12-13T14:12:17+00:00"
         },
         {
@@ -1191,6 +1259,10 @@
                 "nette",
                 "profiler"
             ],
+            "support": {
+                "issues": "https://github.com/nette/tracy/issues",
+                "source": "https://github.com/nette/tracy/tree/v2.6.8"
+            },
             "time": "2020-05-17T09:37:45+00:00"
         }
     ],
@@ -1205,5 +1277,5 @@
         "ext-bcmath": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "1.1.0"
+    "plugin-api-version": "2.1.0"
 }

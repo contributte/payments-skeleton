@@ -1,6 +1,6 @@
 {
   "require": {
-    "php": ">= 7.1",
+    "php": ">= 8.0",
     "ext-bcmath": "*",
     "contributte/bootstrap": "^0.3.0",
     "contributte/latte": "^0.3.0",

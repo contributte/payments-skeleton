@@ -14,23 +14,26 @@ use Tp\Payment;
 
 class HomepagePresenter extends Presenter
 {
+
 	/**
 	 * @var DataApi
 	 * @inject
 	 */
 	public $thePayDataApi;
+
 	/**
 	 * @var IPayment
 	 * @inject
 	 */
 	public $tpPayment;
+
 	/**
 	 * @var IReturnedPayment
 	 * @inject
 	 */
 	public $tpReturnedPayment;
 
-	public function actionPay(int $paymentMethodId)
+	public function actionPay(int $paymentMethodId): void
 	{
 		// TODO use exist $cartId
 		$cartId = 10;
@@ -54,12 +57,12 @@ class HomepagePresenter extends Presenter
 		$payment->redirectOnlinePayment($this);
 	}
 
-	public function actionOfflineConfirmation(int $cartId)
+	public function actionOfflineConfirmation(int $cartId): void
 	{
 		// useless for demo gateway, required for real one (like Fio, and some others)
 	}
 
-	public function actionOnlineConfirmation(int $cartId)
+	public function actionOnlineConfirmation(int $cartId): void
 	{
 		// TODO validate exist $cartId
 		// TODO load price of cart
@@ -68,7 +71,7 @@ class HomepagePresenter extends Presenter
 		$returnedPayment = $this->tpReturnedPayment->create();
 
 		try {// TODO mark cart as payed, send email, ...
-			if ($returnedPayment->verifySignature()) {
+			if ($returnedPayment->verifySignature() !== false) {
 				if (in_array($returnedPayment->getStatus(), [
 					ReturnedPayment::STATUS_OK, // we have money
 					ReturnedPayment::STATUS_WAITING, // some bank method are asynchronous, using this you believe nothing go wrong, see official docs
@@ -77,26 +80,24 @@ class HomepagePresenter extends Presenter
 					if ($this->thePayDataApi->getMerchantConfig()->isDemo()) {
 						//Do not load thePayDataApi->getPayment
 
-						if (bccomp(number_format($returnedPayment->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
+						if (bccomp(number_format((float) $returnedPayment->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
 							// everything is ok
 							// TODO mark cart as payed, send email, ...
 
 							$this->flashMessage('Payment received using demo gateway', 'success');
 						}
-					}
-					else {
+					} else {
 						$paymentId = $returnedPayment->getPaymentId();
 						$payment = $this->thePayDataApi->getPayment($paymentId);
 
-						if (bccomp(number_format($payment->getPayment()->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
+						if (bccomp(number_format((float) $payment->getPayment()?->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
 							// everything is ok
 							// TODO mark cart as payed, send email, ...
 
 							$this->flashMessage('Payment received', 'success');
 						}
 					}
-				}
-				else {
+				} else {
 					$this->flashMessage('Payment not received, status ' . $returnedPayment->getStatus() . '. See constants ReturnedPayment::STATUS_*', 'error');
 				}
 			}
@@ -109,7 +110,7 @@ class HomepagePresenter extends Presenter
 		$this->redirect('default');
 	}
 
-	public function renderListMethods()
+	public function renderListMethods(): void
 	{
 		$template = $this->getTemplate();
 		$paymentMethods = [];
@@ -117,10 +118,9 @@ class HomepagePresenter extends Presenter
 		foreach ($this->thePayDataApi->getPaymentMethods()->getMethods() as $_paymentMethod) {
 			$paymentIcon = $this->thePayDataApi->getPaymentMethodIcon($_paymentMethod, '209x127');
 			$isPaymentByCard = $_paymentMethod->getId() === IPaymentMethod::CREDIT_CARD_PAYMENT_ID;
-			$paymentName = $_paymentMethod->getId();
 
 			$paymentMethods[$_paymentMethod->getId()] = new PaymentMethodDTO(
-				$_paymentMethod->getName(),
+				(string) $_paymentMethod->getName(),
 				$paymentIcon,
 				$isPaymentByCard
 			);
@@ -128,4 +128,5 @@ class HomepagePresenter extends Presenter
 
 		$template->paymentMethods = $paymentMethods;
 	}
+
 }

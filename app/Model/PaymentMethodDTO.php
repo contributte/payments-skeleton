@@ -7,8 +7,10 @@ final class PaymentMethodDTO
 
 	/** @var string */
 	private $paymentMethodName;
+
 	/** @var string */
 	private $paymentIcon;
+
 	/** @var bool */
 	private $isPaymentByCard;
 

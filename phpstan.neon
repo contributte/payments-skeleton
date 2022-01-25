@@ -1,0 +1,11 @@
+includes:
+	- vendor/phpstan/phpstan-deprecation-rules/rules.neon
+	- vendor/phpstan/phpstan-nette/extension.neon
+	- vendor/phpstan/phpstan-nette/rules.neon
+
+parameters:
+	level: 8
+	paths:
+		- app
+
+	checkGenericClassInNonGenericObjectType: false

@@ -32,7 +32,7 @@ https://examples.contributte.org/payments-skeleton/
 
 ## Installation
 
-To install latest version of `contributte/payments-skeleton` use [Composer](https://getcomposer.com).
+To install latest version of `contributte/payments-skeleton` use [Composer](https://getcomposer.org).
 
 ```
 composer create-project -s dev contributte/payments-skeleton acme

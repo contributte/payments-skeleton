@@ -1,6 +1,6 @@
 {
   "name": "contributte/payments-skeleton",
-  "description": "gift Example of payment libraries (payu, thepay, gopay) based on Nette Framework (@nette) and Contributte (@contributte) libraries by @f3l1x. ",
+  "description": "Example of payment libraries (payu, thepay, gopay) based on Nette Framework (@nette) and Contributte (@contributte) libraries by @f3l1x. ",
   "license": "MIT",
   "type": "project",
   "require": {

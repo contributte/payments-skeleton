@@ -10,28 +10,18 @@ use Contributte\ThePay\IReturnedPayment;
 use Contributte\ThePay\ReturnedPayment;
 use Nette\Application\UI\Presenter;
 use Tp\InvalidSignatureException;
-use Tp\Payment;
 
 class HomepagePresenter extends Presenter
 {
 
-	/**
-	 * @var DataApi
-	 * @inject
-	 */
-	public $thePayDataApi;
+	/** @inject */
+	public DataApi $thePayDataApi;
 
-	/**
-	 * @var IPayment
-	 * @inject
-	 */
-	public $tpPayment;
+	/** @inject */
+	public IPayment $tpPayment;
 
-	/**
-	 * @var IReturnedPayment
-	 * @inject
-	 */
-	public $tpReturnedPayment;
+	/** @inject */
+	public IReturnedPayment $tpReturnedPayment;
 
 	public function actionPay(int $paymentMethodId): void
 	{
@@ -41,7 +31,6 @@ class HomepagePresenter extends Presenter
 		$userId = 1;
 
 		$payment = $this->tpPayment->create();
-		assert($payment instanceof Payment);
 
 		$payment->setMethodId($paymentMethodId);
 		$payment->setValue(1000.0);
@@ -71,35 +60,35 @@ class HomepagePresenter extends Presenter
 		$returnedPayment = $this->tpReturnedPayment->create();
 
 		try {// TODO mark cart as payed, send email, ...
-			if ($returnedPayment->verifySignature() !== false) {
-				if (in_array($returnedPayment->getStatus(), [
-					ReturnedPayment::STATUS_OK, // we have money
-					ReturnedPayment::STATUS_WAITING, // some bank method are asynchronous, using this you believe nothing go wrong, see official docs
-				], true)) {
-					//Demo gate don't allow active check...
-					if ($this->thePayDataApi->getMerchantConfig()->isDemo()) {
-						//Do not load thePayDataApi->getPayment
+			$returnedPayment->verifySignature();
 
-						if (bccomp(number_format((float) $returnedPayment->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
-							// everything is ok
-							// TODO mark cart as payed, send email, ...
+			if (in_array($returnedPayment->getStatus(), [
+				ReturnedPayment::STATUS_OK, // we have money
+				ReturnedPayment::STATUS_WAITING, // some bank method are asynchronous, using this you believe nothing go wrong, see official docs
+			], true)) {
+				//Demo gate don't allow active check...
+				if ($this->thePayDataApi->getMerchantConfig()->isDemo()) {
+					//Do not load thePayDataApi->getPayment
 
-							$this->flashMessage('Payment received using demo gateway', 'success');
-						}
-					} else {
-						$paymentId = $returnedPayment->getPaymentId();
-						$payment = $this->thePayDataApi->getPayment($paymentId);
+					if (bccomp(number_format((float) $returnedPayment->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
+						// everything is ok
+						// TODO mark cart as payed, send email, ...
 
-						if (bccomp(number_format((float) $payment->getPayment()?->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
-							// everything is ok
-							// TODO mark cart as payed, send email, ...
-
-							$this->flashMessage('Payment received', 'success');
-						}
+						$this->flashMessage('Payment received using demo gateway', 'success');
 					}
 				} else {
-					$this->flashMessage('Payment not received, status ' . $returnedPayment->getStatus() . '. See constants ReturnedPayment::STATUS_*', 'error');
+					$paymentId = $returnedPayment->getPaymentId();
+					$payment = $this->thePayDataApi->getPayment($paymentId);
+
+					if (bccomp(number_format((float) $payment->getPayment()?->getValue(), 2, '.', ''), $cartTotalPrice, 2) === 0) {
+						// everything is ok
+						// TODO mark cart as payed, send email, ...
+
+						$this->flashMessage('Payment received', 'success');
+					}
 				}
+			} else {
+				$this->flashMessage('Payment not received, status ' . $returnedPayment->getStatus() . '. See constants ReturnedPayment::STATUS_*', 'error');
 			}
 		} catch (InvalidSignatureException $e) {
 			// TODO handle invalid request signature

@@ -5,14 +5,11 @@ namespace App\Model;
 final class PaymentMethodDTO
 {
 
-	/** @var string */
-	private $paymentMethodName;
+	private string $paymentMethodName;
 
-	/** @var string */
-	private $paymentIcon;
+	private string $paymentIcon;
 
-	/** @var bool */
-	private $isPaymentByCard;
+	private bool $isPaymentByCard;
 
 	public function __construct(
 		string $paymentMethodName,

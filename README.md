@@ -34,6 +34,10 @@ https://examples.contributte.org/payments-skeleton/
 
 To install latest version of `contributte/payments-skeleton` use [Composer](https://getcomposer.org).
 
+### Requirements
+
+- PHP 8.4+
+
 ```
 composer create-project -s dev contributte/payments-skeleton acme
 ```

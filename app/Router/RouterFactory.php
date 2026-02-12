@@ -11,6 +11,7 @@ class RouterFactory
 	{
 		$router = new RouteList();
 		$router->addRoute('<presenter>/<action>[/<id>]', 'Homepage:default');
+
 		return $router;
 	}
 

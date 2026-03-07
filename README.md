@@ -2,7 +2,7 @@
 
 <p align=center>
   <a href="https://github.com/contributte/payments-skeleton/actions"><img src="https://badgen.net/github/checks/contributte/payments-skeleton/master"></a>
-  <a href="https://coveralls.io/r/contributte/payments-skeleton"><img src="https://badgen.net/coveralls/c/github/contributte/payments-skeleton"></a>
+  <a href="https://codecov.io/gh/contributte/payments-skeleton"><img src="https://badgen.net/codecov/c/github/contributte/payments-skeleton"></a>
   <a href="https://packagist.org/packages/contributte/payments-skeleton"><img src="https://badgen.net/packagist/dm/contributte/payments-skeleton"></a>
   <a href="https://packagist.org/packages/contributte/payments-skeleton"><img src="https://badgen.net/packagist/v/contributte/payments-skeleton"></a>
 </p>

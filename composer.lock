@@ -1552,11 +1552,11 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "2.1.39",
+            "version": "2.2.3",
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
-                "reference": "c6f73a2af4cbcd99c931d0fb8f08548cc0fa8224",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/4048833dd47b377287818841877fb3087289509c",
+                "reference": "4048833dd47b377287818841877fb3087289509c",
                 "shasum": ""
             },
             "require": {
@@ -1578,6 +1578,17 @@
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ondřej Mirtes"
+                },
+                {
+                    "name": "Markus Staab"
+                },
+                {
+                    "name": "Vincent Langlet"
+                }
             ],
             "description": "PHPStan - PHP Static Analysis Tool",
             "keywords": [
@@ -1601,7 +1612,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2026-02-11T14:48:56+00:00"
+            "time": "2026-06-30T21:15:26+00:00"
         },
         {
             "name": "phpstan/phpstan-deprecation-rules",
@@ -1655,21 +1666,21 @@
         },
         {
             "name": "phpstan/phpstan-nette",
-            "version": "2.0.9",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan-nette.git",
-                "reference": "abd2b295fac8258fb294fd5dc17c5e024c6e3c89"
+                "reference": "3dace7c97479012fec932f24f25931588e478157"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan-nette/zipball/abd2b295fac8258fb294fd5dc17c5e024c6e3c89",
-                "reference": "abd2b295fac8258fb294fd5dc17c5e024c6e3c89",
+                "url": "https://api.github.com/repos/phpstan/phpstan-nette/zipball/3dace7c97479012fec932f24f25931588e478157",
+                "reference": "3dace7c97479012fec932f24f25931588e478157",
                 "shasum": ""
             },
             "require": {
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^2.1.12"
+                "phpstan/phpstan": "^2.2.3"
             },
             "conflict": {
                 "nette/application": "<2.3.0",
@@ -1688,7 +1699,8 @@
                 "phpstan/phpstan-deprecation-rules": "^2.0",
                 "phpstan/phpstan-phpunit": "^2.0.8",
                 "phpstan/phpstan-strict-rules": "^2.0",
-                "phpunit/phpunit": "^9.6"
+                "phpunit/phpunit": "^9.6",
+                "shipmonk/name-collision-detector": "^2.1"
             },
             "type": "phpstan-extension",
             "extra": {
@@ -1711,9 +1723,9 @@
             "description": "Nette Framework class reflection extension for PHPStan",
             "support": {
                 "issues": "https://github.com/phpstan/phpstan-nette/issues",
-                "source": "https://github.com/phpstan/phpstan-nette/tree/2.0.9"
+                "source": "https://github.com/phpstan/phpstan-nette/tree/2.0.11"
             },
-            "time": "2026-02-11T12:41:39+00:00"
+            "time": "2026-06-24T08:42:14+00:00"
         },
         {
             "name": "phpstan/phpstan-strict-rules",
@@ -1913,13 +1925,13 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=8.4",
         "ext-bcmath": "*"
     },
-    "platform-dev": [],
-    "plugin-api-version": "2.6.0"
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
 }

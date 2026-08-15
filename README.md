@@ -24,7 +24,7 @@ Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact �
 
 -----
 
-This project is here for super-simple demonstration how to create a project with `contributte/datagrid`. People are mailing me "This thing is broken - can you fix it please?" and I am responding: "Sure. Please create a sandbox-like repository where I can reproduce you issue and I will have a look at it". Well that's the purpose of this repository. I prepared you a database, presenter and a template. Use it. 🙌
+This project is a small [Nette](https://nette.org) example for integrating [contributte/thepay](https://contributte.org/packages/contributte/thepay.html).
 
 ## Demo
 
@@ -37,15 +37,37 @@ To install latest version of `contributte/payments-skeleton` use [Composer](http
 ### Requirements
 
 - PHP 8.4+
+- PHP `ext-bcmath`
 
-```
+```bash
 composer create-project -s dev contributte/payments-skeleton acme
+cd acme
+make project
 ```
 
 ### Composer packages
 
-Take a detailed look :eyes: at:
-- [contributte/thepay](https://contributte.org/packages/contributte/thepay.html)
+## Startup
+
+```bash
+make dev
+```
+
+Open [http://localhost:8000](http://localhost:8000). The default route is `Homepage:default`.
+
+## ThePay configuration
+
+The ThePay DI extension is registered in `config/thepay.neon`, which is included from `config/config.neon`. Configure provider credentials and payment settings in your application-specific configuration; do not commit production credentials to this skeleton.
+
+## Commands
+
+```bash
+make qa       # coding standard and static analysis
+make cs       # coding standard only
+make csf      # fix coding style
+make phpstan  # run static analysis
+make clean    # remove temporary files and logs
+```
 
 ## Development
 

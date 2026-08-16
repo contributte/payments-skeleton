@@ -45,8 +45,6 @@ cd acme
 make project
 ```
 
-### Composer packages
-
 ## Startup
 
 ```bash

@@ -1,65 +1,64 @@
-![](https://heatbadger.now.sh/github/readme/contributte/payments-skeleton/)
+# Contributte Payments Skeleton
 
-<p align=center>
-  <a href="https://github.com/contributte/payments-skeleton/actions"><img src="https://badgen.net/github/checks/contributte/payments-skeleton/master"></a>
-  <a href="https://codecov.io/gh/contributte/payments-skeleton"><img src="https://badgen.net/codecov/c/github/contributte/payments-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/payments-skeleton"><img src="https://badgen.net/packagist/dm/contributte/payments-skeleton"></a>
-  <a href="https://packagist.org/packages/contributte/payments-skeleton"><img src="https://badgen.net/packagist/v/contributte/payments-skeleton"></a>
-</p>
-<p align=center>
-  <a href="https://packagist.org/packages/contributte/payments-skeleton"><img src="https://badgen.net/packagist/php/contributte/payments-skeleton"></a>
-  <a href="https://github.com/contributte/payments-skeleton"><img src="https://badgen.net/github/license/contributte/payments-skeleton"></a>
-  <a href="https://bit.ly/ctteg"><img src="https://badgen.net/badge/support/gitter/cyan"></a>
-  <a href="https://bit.ly/cttfo"><img src="https://badgen.net/badge/support/forum/yellow"></a>
-  <a href="https://contributte.org/partners.html"><img src="https://badgen.net/badge/sponsor/donations/F96854"></a>
-</p>
+A Nette web-project skeleton that demonstrates listing ThePay payment methods and initiating a payment through `contributte/thepay`.
 
-<p align=center>
-Website 🚀 <a href="https://contributte.org">contributte.org</a> | Contact 👨🏻‍💻 <a href="https://f3l1x.io">f3l1x.io</a> | Twitter 🐦 <a href="https://twitter.com/contributte">@contributte</a>
-</p>
+[![Build](https://badgen.net/github/checks/contributte/payments-skeleton/master)](https://github.com/contributte/payments-skeleton/actions)
+[![Packagist](https://badgen.net/packagist/v/contributte/payments-skeleton)](https://packagist.org/packages/contributte/payments-skeleton)
+[![License](https://badgen.net/github/license/contributte/payments-skeleton)](https://github.com/contributte/payments-skeleton)
 
-<p align=center>
-    <img src="https://api.microlink.io?url=https%3A%2F%2Fexamples.contributte.org%2Fpayments-skeleton%2F&overlay.browser=light&screenshot=true&meta=false&embed=screenshot.url"></img>
-</p>
+![Available payment methods](available-payment-methods.png)
 
------
+## Clean-Checkout Limitation
 
-This project is here for super-simple demonstration how to create a project with `contributte/datagrid`. People are mailing me "This thing is broken - can you fix it please?" and I am responding: "Sure. Please create a sandbox-like repository where I can reproduce you issue and I will have a look at it". Well that's the purpose of this repository. I prepared you a database, presenter and a template. Use it. 🙌
+The clean checkout enables the ThePay Nette extension but provides neither ThePay credentials nor a public local configuration template. `config/local.neon` is loaded when present, but no ignore rule protects it and no template defines a safe local credential path. Therefore, a safe, complete payment-gateway setup cannot be documented from repository evidence without directing credentials into a tracked file. Do not use production credentials with this skeleton.
 
-## Demo
+## Quick Start
 
-https://examples.contributte.org/payments-skeleton/
+Requirements:
 
-## Installation
+- PHP 8.4 or later with the `bcmath` and `soap` extensions
+- Composer
+- `make`
 
-To install latest version of `contributte/payments-skeleton` use [Composer](https://getcomposer.org).
+Create a new project with Composer, then create the writable runtime directories:
 
-### Requirements
-
-- PHP 8.4+
-
-```
+```sh
 composer create-project -s dev contributte/payments-skeleton acme
+cd acme
+make setup
 ```
 
-### Composer packages
+`make setup` creates `var/tmp` and `var/log` and grants them write permissions. It does not install dependencies or configure ThePay; `composer create-project` performs dependency installation.
 
-Take a detailed look :eyes: at:
-- [contributte/thepay](https://contributte.org/packages/contributte/thepay.html)
+After supplying a safe, untracked local ThePay configuration through a mechanism established for your deployment, run the development server:
 
-## Development
+```sh
+make dev
+```
 
-See [how to contribute](https://contributte.org/contributing.html) to this package.
+Open <http://localhost:8000>. The homepage is expected to show **Contributte | ThePay** and a **List payment methods** link. Following that link calls ThePay to retrieve payment methods, so it requires valid gateway configuration and may send requests to ThePay.
 
-This package is currently maintaining by these authors.
+The `pay` action uses demo cart ID `10`, user ID `1`, amount `1000.00 CZK`, and redirects the browser to the selected payment method. It is demonstration code, not a production checkout implementation.
 
-<a href="https://github.com/f3l1x">
-    <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/538058?v=3&s=80">
-</a>
-<a href="https://github.com/petrparolek">
-  <img width="80" height="80" src="https://avatars2.githubusercontent.com/u/6066243?v=3&s=80">
-</a>
+## Quality Checks
 
------
+```sh
+make qa
+```
 
-Consider to [support](https://contributte.org/partners.html) **contributte** development team. Also thank you for using this project.
+This runs coding-standard checks and PHPStan analysis for `app`.
+
+## Links
+
+- [Demo](https://examples.contributte.org/payments-skeleton/)
+- [ThePay package documentation](https://contributte.org/packages/contributte/thepay.html)
+- [Contributte](https://contributte.org/)
+- [Support Contributte](https://contributte.org/partners.html)
+
+## Contributing
+
+This project is maintained by the [Contributte organization](https://github.com/contributte). Report issues or contribute changes through the [GitHub repository](https://github.com/contributte/payments-skeleton) and its [issue tracker](https://github.com/contributte/payments-skeleton/issues). See the [Contributte contribution guide](https://contributte.org/contributing.html).
+
+## License
+
+[MIT](LICENSE), Copyright (c) 2021 Contributte.
